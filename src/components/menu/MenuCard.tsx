@@ -26,38 +26,50 @@ export function MenuCard({ item, index, onSelect }: Props) {
       aria-label={`${item.name}, ${formatPrice(item.price)}. View details`}
       className="card-lift group relative flex w-full flex-col overflow-hidden rounded-3xl border border-border bg-card text-left shadow-[var(--shadow-soft)]"
     >
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <img
-          src={category?.image}
-          alt={`${item.name} — ${category?.name ?? "menu item"}`}
-          loading="lazy"
-          width={1024}
-          height={768}
-          className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 30%, color-mix(in oklab, var(--background) 88%, transparent))",
-          }}
-        />
-        {item.badges?.length ? (
-          <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
-            {item.badges.map((badge) => (
-              <span
-                key={badge}
-                className="rounded-full border border-border bg-background/60 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-gold backdrop-blur-md"
-              >
-                {badge}
-              </span>
-            ))}
-          </div>
-        ) : null}
-        <span className="absolute right-3 top-3 rounded-full bg-background/55 px-2 py-1 text-[10px] font-medium tracking-widest text-muted-foreground backdrop-blur-md">
-          {String(item.no).padStart(2, "0")}
-        </span>
-      </div>
+      {item.image ? (
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <img
+            src={item.image}
+            alt={`${item.name} — ${category?.name ?? "menu item"}`}
+            loading="lazy"
+            width={1024}
+            height={768}
+            className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 30%, color-mix(in oklab, var(--background) 88%, transparent))",
+            }}
+          />
+          {item.badges?.length ? (
+            <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
+              {item.badges.map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded-full border border-border bg-background/60 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-gold backdrop-blur-md"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+          ) : null}
+          <span className="absolute right-3 top-3 rounded-full bg-background/55 px-2 py-1 text-[10px] font-medium tracking-widest text-muted-foreground backdrop-blur-md">
+            {String(item.no).padStart(2, "0")}
+          </span>
+        </div>
+      ) : (
+        <div className="flex items-center justify-between gap-3 border-b border-border px-4 pt-4 sm:px-5">
+          <span className="text-[11px] uppercase tracking-[0.24em] text-gold">
+            {category?.name}
+          </span>
+          <span className="pb-3 text-[10px] font-medium tracking-widest text-muted-foreground">
+            {String(item.no).padStart(2, "0")}
+          </span>
+        </div>
+      )}
+
 
       <div className="flex flex-1 flex-col gap-1.5 p-4 sm:p-5">
         <h3 className="font-display text-xl leading-tight text-foreground sm:text-2xl">
@@ -66,6 +78,19 @@ export function MenuCard({ item, index, onSelect }: Props) {
         <p className="line-clamp-2 text-sm text-muted-foreground">
           {item.description ?? category?.name}
         </p>
+        {!item.image && item.badges?.length ? (
+          <div className="mt-1 flex flex-wrap gap-1.5">
+            {item.badges.map((badge) => (
+              <span
+                key={badge}
+                className="rounded-full border border-border bg-secondary px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-gold"
+              >
+                {badge}
+              </span>
+            ))}
+          </div>
+        ) : null}
+
         <div className="mt-3 flex items-center justify-between gap-3">
           <span className="text-base font-semibold text-gold sm:text-lg">
             {formatPrice(item.price)}

@@ -71,24 +71,29 @@ export function ItemDetail({ item, onClose }: Props) {
               <X className="h-5 w-5" aria-hidden="true" />
             </button>
 
-            <div className="sm:grid sm:grid-cols-2">
-              <div className="relative aspect-[16/10] overflow-hidden sm:aspect-auto sm:h-full sm:min-h-[26rem]">
-                <img
-                  src={category?.image}
-                  alt={`${item.name} — ${category?.name ?? "menu item"}`}
-                  loading="lazy"
-                  width={1024}
-                  height={768}
-                  className="h-full w-full object-cover"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{ background: "var(--gradient-ember)" }}
-                />
+            <div className={item.image ? "sm:grid sm:grid-cols-2" : ""}>
+              {item.image ? (
+                <div className="relative aspect-[16/10] overflow-hidden sm:aspect-auto sm:h-full sm:min-h-[26rem]">
+                  <img
+                    src={item.image}
+                    alt={`${item.name} — ${category?.name ?? "menu item"}`}
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="h-full w-full object-cover"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: "var(--gradient-ember)" }}
+                  />
+                  <div className="mx-auto mt-3 h-1 w-12 rounded-full bg-foreground/30 sm:hidden" />
+                </div>
+              ) : (
                 <div className="mx-auto mt-3 h-1 w-12 rounded-full bg-foreground/30 sm:hidden" />
-              </div>
+              )}
 
               <div className="p-6 sm:p-8">
+
                 <p className="text-[11px] uppercase tracking-[0.28em] text-gold">
                   {category?.name}
                 </p>

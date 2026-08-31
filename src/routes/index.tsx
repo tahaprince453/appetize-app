@@ -7,7 +7,6 @@ import { MenuCard } from "@/components/menu/MenuCard";
 import { ItemDetail } from "@/components/menu/ItemDetail";
 import {
   categories,
-  formatPrice,
   menuItems,
   restaurant,
   type MenuItem,
@@ -61,13 +60,15 @@ function MenuPage() {
     [activeCategory],
   );
 
-  const scrollToCategory = useCallback((id: string) => {
-    setActiveCategory("all");
+  const selectCategory = useCallback((id: string) => {
+    setActiveCategory(id);
     setQuery("");
     requestAnimationFrame(() => {
-      document
-        .getElementById(`section-${id}`)
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      const target =
+        id === "all"
+          ? document.getElementById("menu-start")
+          : document.getElementById(`section-${id}`);
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }, []);
 
@@ -153,19 +154,14 @@ function MenuPage() {
             <CategoryChip
               label="All"
               active={activeCategory === "all"}
-              onClick={() => setActiveCategory("all")}
+              onClick={() => selectCategory("all")}
             />
             {categories.map((c) => (
               <CategoryChip
                 key={c.id}
                 label={c.name}
                 active={activeCategory === c.id}
-                onClick={() =>
-                  activeCategory === "all"
-                    ? scrollToCategory(c.id)
-                    : setActiveCategory(c.id)
-                }
-                onDoubleClick={() => setActiveCategory(c.id)}
+                onClick={() => selectCategory(c.id)}
               />
             ))}
           </div>
@@ -224,7 +220,7 @@ function MenuPage() {
       </section>
 
       {/* Menu */}
-      <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+      <main id="menu-start" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
         {results ? (
           <section aria-live="polite">
             <h2 className="font-display text-3xl text-foreground">
@@ -374,10 +370,6 @@ function MenuPage() {
       </a>
 
       <ItemDetail item={selected} onClose={() => setSelected(null)} />
-      <span className="sr-only">
-        Prices from {formatPrice(menuItems[menuItems.length - 1].price)} listings are as printed on the
-        restaurant menu.
-      </span>
     </div>
   );
 }
@@ -386,18 +378,15 @@ function CategoryChip({
   label,
   active,
   onClick,
-  onDoubleClick,
 }: {
   label: string;
   active: boolean;
   onClick: () => void;
-  onDoubleClick?: () => void;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      onDoubleClick={onDoubleClick}
       aria-pressed={active}
       className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2.5 text-xs uppercase tracking-[0.14em] transition-all duration-300 ${
         active

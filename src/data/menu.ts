@@ -1,6 +1,15 @@
-import plateImg from "@/assets/placeholder-plate.jpg";
-import warmImg from "@/assets/placeholder-warm.jpg";
-import coolImg from "@/assets/placeholder-cool.jpg";
+import wingsImg from "@/assets/dish-wings.jpg";
+import soupImg from "@/assets/dish-soup.jpg";
+import steakImg from "@/assets/dish-steak.jpg";
+import fishImg from "@/assets/dish-fish.jpg";
+import chilliImg from "@/assets/dish-chilli.jpg";
+import platterImg from "@/assets/dish-bbq-platter.jpg";
+import pulaoImg from "@/assets/dish-pulao.jpg";
+import biryaniImg from "@/assets/dish-biryani.jpg";
+import handiImg from "@/assets/dish-handi.jpg";
+import karahiImg from "@/assets/dish-karahi.jpg";
+import icecreamImg from "@/assets/dish-icecream.jpg";
+import charghaImg from "@/assets/dish-chargha.jpg";
 
 export type MenuItem = {
   /** Item number exactly as printed on the menu */
@@ -11,6 +20,8 @@ export type MenuItem = {
   price: number;
   category: string;
   badges?: string[];
+  /** Real dish photo — only for signature/popular items */
+  image?: string;
 };
 
 export type MenuCategory = {
@@ -18,7 +29,6 @@ export type MenuCategory = {
   name: string;
   /** Note printed under the category on the menu */
   note?: string;
-  image: string;
 };
 
 /** Restaurant details exactly as printed on the menu. Edit here to update. */
@@ -41,40 +51,38 @@ export const restaurant = {
 };
 
 export const categories: MenuCategory[] = [
-  { id: "starters", name: "Starters", image: warmImg },
-  { id: "salads", name: "Salads", image: coolImg },
+  { id: "starters", name: "Starters" },
+  { id: "salads", name: "Salads" },
   {
     id: "soups",
     name: "Soups",
     note: "All soups are also served in single serving @ Rs. 495 + tax",
-    image: warmImg,
   },
-  { id: "sandwiches-burgers", name: "Sandwiches & Burgers", image: plateImg },
-  { id: "continental", name: "Continental Cuisine", image: plateImg },
-  { id: "sea-food", name: "Sea Food", image: coolImg },
+  { id: "sandwiches-burgers", name: "Sandwiches & Burgers" },
+  { id: "continental", name: "Continental Cuisine" },
+  { id: "sea-food", name: "Sea Food" },
   {
     id: "chinese",
     name: "Chinese Cuisine",
     note: "All Chinese dishes served in sea food also will be charge @ Rs. 375 extra",
-    image: warmImg,
   },
-  { id: "bbq", name: "BBQ", image: warmImg },
-  { id: "rice-noodles", name: "Rice & Noodles", image: plateImg },
-  { id: "pakistani-chicken", name: "Pakistani Cuisine (Chicken)", image: warmImg },
-  { id: "pakistani-mutton", name: "Pakistani Cuisine (Mutton)", image: warmImg },
-  { id: "vegetable-daal", name: "Vegetable & Daal", image: coolImg },
-  { id: "tandoor", name: "Tandoor", image: plateImg },
-  { id: "cold-beverages", name: "Cold Beverages", image: coolImg },
-  { id: "hot-beverages", name: "Hot Beverages", image: warmImg },
-  { id: "desserts", name: "Desserts", image: coolImg },
-  { id: "new-arrival", name: "New Arrival", image: warmImg },
+  { id: "bbq", name: "BBQ" },
+  { id: "rice-noodles", name: "Rice & Noodles" },
+  { id: "pakistani-chicken", name: "Pakistani Cuisine (Chicken)" },
+  { id: "pakistani-mutton", name: "Pakistani Cuisine (Mutton)" },
+  { id: "vegetable-daal", name: "Vegetable & Daal" },
+  { id: "tandoor", name: "Tandoor" },
+  { id: "cold-beverages", name: "Cold Beverages" },
+  { id: "hot-beverages", name: "Hot Beverages" },
+  { id: "desserts", name: "Desserts" },
+  { id: "new-arrival", name: "New Arrival" },
 ];
 
 export const menuItems: MenuItem[] = [
   // STARTERS
-  { no: 1, name: "BBQ Wings", price: 1145, category: "starters" },
-  { no: 2, name: "Honey Wings", price: 1195, category: "starters" },
-  { no: 3, name: "Spicy Wings", price: 1095, category: "starters" },
+  { no: 1, name: "BBQ Wings", price: 1145, category: "starters", image: wingsImg },
+  { no: 2, name: "Honey Wings", price: 1195, category: "starters", image: wingsImg },
+  { no: 3, name: "Spicy Wings", price: 1095, category: "starters", image: wingsImg },
   { no: 4, name: "Cheese Naan", price: 850, category: "starters" },
   { no: 5, name: "French Fries", price: 795, category: "starters" },
   { no: 6, name: "Fish Crackers", price: 650, category: "starters" },
@@ -87,11 +95,11 @@ export const menuItems: MenuItem[] = [
   { no: 11, name: "Raita", price: 325, category: "salads" },
 
   // SOUPS
-  { no: 12, name: "Tandoori Special Soup", price: 2095, category: "soups", badges: ["Signature"] },
-  { no: 13, name: "Hot & Sour Soup", price: 1995, category: "soups" },
-  { no: 14, name: "Chicken Corn Soup", price: 1925, category: "soups" },
-  { no: 15, name: "Thai Soup", price: 1850, category: "soups" },
-  { no: 16, name: "Chicken Vegetable Soup", price: 1895, category: "soups" },
+  { no: 12, name: "Tandoori Special Soup", price: 2095, category: "soups", badges: ["Signature"], image: soupImg },
+  { no: 13, name: "Hot & Sour Soup", price: 1995, category: "soups", image: soupImg },
+  { no: 14, name: "Chicken Corn Soup", price: 1925, category: "soups", image: soupImg },
+  { no: 15, name: "Thai Soup", price: 1850, category: "soups", image: soupImg },
+  { no: 16, name: "Chicken Vegetable Soup", price: 1895, category: "soups", image: soupImg },
 
   // SANDWICHES & BURGERS
   { no: 17, name: "Chicken Grilled Sandwich", price: 995, category: "sandwiches-burgers" },
@@ -101,28 +109,28 @@ export const menuItems: MenuItem[] = [
   { no: 21, name: "Zinger Burger", price: 950, category: "sandwiches-burgers" },
 
   // CONTINENTAL CUISINE
-  { no: 22, name: "Special Italian Chicken", price: 2195, category: "continental" },
-  { no: 23, name: "Tandoori Special Steak", price: 2495, category: "continental", badges: ["Signature"] },
-  { no: 24, name: "Tarragon Steak", price: 2395, category: "continental" },
-  { no: 25, name: "Mushroom Steak", price: 2395, category: "continental" },
-  { no: 26, name: "Pepper Steak", price: 2395, category: "continental" },
-  { no: 27, name: "Mexican Steak", price: 2395, category: "continental" },
+  { no: 22, name: "Special Italian Chicken", price: 2195, category: "continental", image: steakImg },
+  { no: 23, name: "Tandoori Special Steak", price: 2495, category: "continental", badges: ["Signature"], image: steakImg },
+  { no: 24, name: "Tarragon Steak", price: 2395, category: "continental", image: steakImg },
+  { no: 25, name: "Mushroom Steak", price: 2395, category: "continental", image: steakImg },
+  { no: 26, name: "Pepper Steak", price: 2395, category: "continental", image: steakImg },
+  { no: 27, name: "Mexican Steak", price: 2395, category: "continental", image: steakImg },
 
   // SEA FOOD
-  { no: 28, name: "Tandoori Special Fish", price: 2850, category: "sea-food", badges: ["Signature"] },
-  { no: 29, name: "Grilled Fish", price: 2495, category: "sea-food" },
+  { no: 28, name: "Tandoori Special Fish", price: 2850, category: "sea-food", badges: ["Signature"], image: fishImg },
+  { no: 29, name: "Grilled Fish", price: 2495, category: "sea-food", image: fishImg },
   { no: 30, name: "Fried Fish & Chips (3 Pcs)", price: 2695, category: "sea-food" },
   { no: 31, name: "Finger Fish (8 Pcs)", price: 2650, category: "sea-food" },
   { no: 32, name: "Fish Chilli Dry", price: 2350, category: "sea-food" },
 
   // CHINESE CUISINE
-  { no: 33, name: "Chicken Chilli Dry", price: 2395, category: "chinese" },
-  { no: 34, name: "Beef Chilli Dry", price: 2995, category: "chinese" },
-  { no: 35, name: "Chicken Shashlik", price: 2295, category: "chinese" },
-  { no: 36, name: "Kung Pao Chicken", price: 2295, category: "chinese" },
-  { no: 37, name: "Mongolian Chicken", price: 2395, category: "chinese" },
-  { no: 38, name: "Szechuan Chicken", price: 2395, category: "chinese" },
-  { no: 39, name: "Chicken Manchurian", price: 2250, category: "chinese" },
+  { no: 33, name: "Chicken Chilli Dry", price: 2395, category: "chinese", image: chilliImg },
+  { no: 34, name: "Beef Chilli Dry", price: 2995, category: "chinese", image: chilliImg },
+  { no: 35, name: "Chicken Shashlik", price: 2295, category: "chinese", image: chilliImg },
+  { no: 36, name: "Kung Pao Chicken", price: 2295, category: "chinese", image: chilliImg },
+  { no: 37, name: "Mongolian Chicken", price: 2395, category: "chinese", image: chilliImg },
+  { no: 38, name: "Szechuan Chicken", price: 2395, category: "chinese", image: chilliImg },
+  { no: 39, name: "Chicken Manchurian", price: 2250, category: "chinese", image: chilliImg },
   {
     no: 40,
     name: "Combo 1",
@@ -157,7 +165,7 @@ export const menuItems: MenuItem[] = [
     price: 12999,
     category: "bbq",
     badges: ["Signature", "Platter"],
-  },
+  image: platterImg },
   {
     no: 44,
     name: "Chef Sher Khan Platter",
@@ -166,7 +174,7 @@ export const menuItems: MenuItem[] = [
     price: 8999,
     category: "bbq",
     badges: ["Platter"],
-  },
+  image: platterImg },
   { no: 45, name: "Mutton Ribs", price: 4795, category: "bbq" },
   { no: 46, name: "Mutton Tikka (24 Pcs)", price: 3995, category: "bbq" },
   { no: 47, name: "Mutton Chops (6 Pcs)", price: 4095, category: "bbq" },
@@ -183,13 +191,13 @@ export const menuItems: MenuItem[] = [
   { no: 58, name: "Chicken Bihari Boti B/L (12 Pcs)", price: 2195, category: "bbq" },
   { no: 59, name: "Qalmi Tikka (4 Pcs)", price: 1995, category: "bbq" },
   { no: 60, name: "Chicken Tikka", price: 650, category: "bbq" },
-  { no: 61, name: "Fish Tikka (8 Pcs)", price: 2795, category: "bbq" },
+  { no: 61, name: "Fish Tikka (8 Pcs)", price: 2795, category: "bbq", image: fishImg },
   { no: 62, name: "Turkish Kabab (6 Pcs)", price: 1995, category: "bbq" },
 
   // RICE & NOODLES
-  { no: 63, name: "Tandoori Special Rice", price: 1695, category: "rice-noodles", badges: ["Signature"] },
-  { no: 64, name: "Kabuli Pulao", price: 1995, category: "rice-noodles" },
-  { no: 65, name: "Chicken Biryani", price: 1195, category: "rice-noodles" },
+  { no: 63, name: "Tandoori Special Rice", price: 1695, category: "rice-noodles", badges: ["Signature"], image: pulaoImg },
+  { no: 64, name: "Kabuli Pulao", price: 1995, category: "rice-noodles", image: pulaoImg },
+  { no: 65, name: "Chicken Biryani", price: 1195, category: "rice-noodles", image: biryaniImg },
   { no: 66, name: "Chicken Fried Rice", price: 1595, category: "rice-noodles" },
   { no: 67, name: "Chicken Masala Rice", price: 1395, category: "rice-noodles" },
   { no: 68, name: "Egg Fried Rice", price: 1450, category: "rice-noodles" },
@@ -198,11 +206,11 @@ export const menuItems: MenuItem[] = [
   { no: 71, name: "Chicken Chowmein", price: 2550, category: "rice-noodles" },
 
   // PAKISTANI CUISINE (CHICKEN)
-  { no: 72, name: "Chicken Creamy Handi (Boneless)", price: 2795, category: "pakistani-chicken" },
-  { no: 73, name: "Chicken Handi (Boneless)", price: 2595, category: "pakistani-chicken" },
-  { no: 74, name: "Chicken Multani Handi", price: 2695, category: "pakistani-chicken" },
-  { no: 75, name: "Chicken Karahi (Full)", price: 2495, category: "pakistani-chicken" },
-  { no: 76, name: "Chicken Karahi (Half)", price: 1695, category: "pakistani-chicken" },
+  { no: 72, name: "Chicken Creamy Handi (Boneless)", price: 2795, category: "pakistani-chicken", image: handiImg },
+  { no: 73, name: "Chicken Handi (Boneless)", price: 2595, category: "pakistani-chicken", image: handiImg },
+  { no: 74, name: "Chicken Multani Handi", price: 2695, category: "pakistani-chicken", image: handiImg },
+  { no: 75, name: "Chicken Karahi (Full)", price: 2495, category: "pakistani-chicken", image: karahiImg },
+  { no: 76, name: "Chicken Karahi (Half)", price: 1695, category: "pakistani-chicken", image: karahiImg },
   { no: 77, name: "Chicken Shahjahani", price: 2295, category: "pakistani-chicken" },
   { no: 78, name: "Chicken Hari Mirch", price: 2295, category: "pakistani-chicken" },
   { no: 79, name: "Chicken Hyderabadi", price: 2295, category: "pakistani-chicken" },
@@ -212,10 +220,10 @@ export const menuItems: MenuItem[] = [
   { no: 83, name: "Steam Roast", price: 2195, category: "pakistani-chicken" },
 
   // PAKISTANI CUISINE (MUTTON)
-  { no: 84, name: "Mutton Handi", price: 4595, category: "pakistani-mutton" },
-  { no: 85, name: "Mutton Multani Handi", price: 4595, category: "pakistani-mutton" },
-  { no: 86, name: "Mutton Karahi (Full)", price: 4795, category: "pakistani-mutton" },
-  { no: 87, name: "Mutton Karahi (Half)", price: 2595, category: "pakistani-mutton" },
+  { no: 84, name: "Mutton Handi", price: 4595, category: "pakistani-mutton", image: handiImg },
+  { no: 85, name: "Mutton Multani Handi", price: 4595, category: "pakistani-mutton", image: handiImg },
+  { no: 86, name: "Mutton Karahi (Full)", price: 4795, category: "pakistani-mutton", image: karahiImg },
+  { no: 87, name: "Mutton Karahi (Half)", price: 2595, category: "pakistani-mutton", image: karahiImg },
   { no: 88, name: "Mutton Hari Mirch", price: 2775, category: "pakistani-mutton" },
   { no: 89, name: "Mutton Brain Masala", price: 2395, category: "pakistani-mutton" },
   { no: 90, name: "Mutton Jumbo Dry", price: 4795, category: "pakistani-mutton" },
@@ -255,20 +263,20 @@ export const menuItems: MenuItem[] = [
   { no: 116, name: "Peshawari Kahwa with Gurr", price: 230, category: "hot-beverages" },
 
   // DESSERTS
-  { no: 117, name: "Tandoori Special Ice-Cream", price: 815, category: "desserts", badges: ["Signature"] },
-  { no: 118, name: "Tutti Fruitti Ice-Cream", price: 695, category: "desserts" },
-  { no: 119, name: "Plain Ice-Cream (2 Scoops)", price: 540, category: "desserts" },
+  { no: 117, name: "Tandoori Special Ice-Cream", price: 815, category: "desserts", badges: ["Signature"], image: icecreamImg },
+  { no: 118, name: "Tutti Fruitti Ice-Cream", price: 695, category: "desserts", image: icecreamImg },
+  { no: 119, name: "Plain Ice-Cream (2 Scoops)", price: 540, category: "desserts", image: icecreamImg },
   { no: 120, name: "Cookie Crunch", price: 690, category: "desserts" },
   { no: 121, name: "Kheer Thoothi", price: 295, category: "desserts" },
   { no: 122, name: "Kulfi", price: 170, category: "desserts" },
 
   // NEW ARRIVAL
-  { no: 123, name: "Tandoori Dum Biryani (Mutton)", price: 2599, category: "new-arrival", badges: ["New"] },
-  { no: 124, name: "Tandoori Dum Biryani (Chicken)", price: 1899, category: "new-arrival", badges: ["New"] },
-  { no: 125, name: "Tandoori Chargha", price: 1899, category: "new-arrival", badges: ["New"] },
-  { no: 126, name: "Dum Handi (Lamb)", price: 4595, category: "new-arrival", badges: ["New"] },
-  { no: 127, name: "Dum Handi (Mutton)", price: 4595, category: "new-arrival", badges: ["New"] },
-  { no: 128, name: "Dum Handi (Chicken)", price: 2995, category: "new-arrival", badges: ["New"] },
+  { no: 123, name: "Tandoori Dum Biryani (Mutton)", price: 2599, category: "new-arrival", badges: ["New"], image: biryaniImg },
+  { no: 124, name: "Tandoori Dum Biryani (Chicken)", price: 1899, category: "new-arrival", badges: ["New"], image: biryaniImg },
+  { no: 125, name: "Tandoori Chargha", price: 1899, category: "new-arrival", badges: ["New"], image: charghaImg },
+  { no: 126, name: "Dum Handi (Lamb)", price: 4595, category: "new-arrival", badges: ["New"], image: handiImg },
+  { no: 127, name: "Dum Handi (Mutton)", price: 4595, category: "new-arrival", badges: ["New"], image: handiImg },
+  { no: 128, name: "Dum Handi (Chicken)", price: 2995, category: "new-arrival", badges: ["New"], image: handiImg },
 ];
 
 export const categoryById = Object.fromEntries(categories.map((c) => [c.id, c]));

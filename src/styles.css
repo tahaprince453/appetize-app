@@ -72,64 +72,65 @@
 :root {
   --radius: 1rem;
 
-  /* Charcoal & ember palette — Tandoori */
-  --background: oklch(0.16 0.012 60);
-  --foreground: oklch(0.96 0.012 85);
-  --surface: oklch(0.21 0.015 60);
-  --surface-2: oklch(0.26 0.018 62);
-  --card: oklch(0.21 0.015 60);
-  --card-foreground: oklch(0.96 0.012 85);
-  --popover: oklch(0.19 0.014 60);
-  --popover-foreground: oklch(0.96 0.012 85);
+  /* Warm ivory & ember palette — Tandoori (light) */
+  --background: oklch(0.985 0.008 85);
+  --foreground: oklch(0.24 0.02 60);
+  --surface: oklch(0.965 0.012 85);
+  --surface-2: oklch(0.93 0.016 82);
+  --card: oklch(0.99 0.006 85);
+  --card-foreground: oklch(0.24 0.02 60);
+  --popover: oklch(0.99 0.006 85);
+  --popover-foreground: oklch(0.24 0.02 60);
 
-  --gold: oklch(0.82 0.135 82);
-  --gold-soft: oklch(0.9 0.07 88);
-  --ember: oklch(0.6 0.2 35);
+  --gold: oklch(0.62 0.115 72);
+  --gold-soft: oklch(0.74 0.09 80);
+  --ember: oklch(0.58 0.19 35);
 
-  --primary: oklch(0.82 0.135 82);
-  --primary-foreground: oklch(0.18 0.02 60);
-  --secondary: oklch(0.26 0.018 62);
-  --secondary-foreground: oklch(0.96 0.012 85);
-  --muted: oklch(0.26 0.018 62);
-  --muted-foreground: oklch(0.74 0.018 80);
-  --accent: oklch(0.6 0.2 35);
-  --accent-foreground: oklch(0.97 0.01 85);
-  --destructive: oklch(0.6 0.21 27);
-  --destructive-foreground: oklch(0.98 0.005 85);
-  --border: oklch(0.98 0.02 85 / 12%);
-  --input: oklch(0.98 0.02 85 / 16%);
-  --ring: oklch(0.82 0.135 82);
+  --primary: oklch(0.62 0.115 72);
+  --primary-foreground: oklch(0.99 0.008 85);
+  --secondary: oklch(0.94 0.014 84);
+  --secondary-foreground: oklch(0.26 0.02 60);
+  --muted: oklch(0.94 0.014 84);
+  --muted-foreground: oklch(0.47 0.02 70);
+  --accent: oklch(0.58 0.19 35);
+  --accent-foreground: oklch(0.99 0.008 85);
+  --destructive: oklch(0.58 0.21 27);
+  --destructive-foreground: oklch(0.99 0.005 85);
+  --border: oklch(0.32 0.03 70 / 14%);
+  --input: oklch(0.32 0.03 70 / 20%);
+  --ring: oklch(0.62 0.115 72);
 
-  --chart-1: oklch(0.82 0.135 82);
-  --chart-2: oklch(0.6 0.2 35);
-  --chart-3: oklch(0.7 0.1 140);
-  --chart-4: oklch(0.75 0.12 200);
-  --chart-5: oklch(0.65 0.15 320);
-  --sidebar: oklch(0.19 0.014 60);
-  --sidebar-foreground: oklch(0.96 0.012 85);
-  --sidebar-primary: oklch(0.82 0.135 82);
-  --sidebar-primary-foreground: oklch(0.18 0.02 60);
-  --sidebar-accent: oklch(0.26 0.018 62);
-  --sidebar-accent-foreground: oklch(0.96 0.012 85);
-  --sidebar-border: oklch(0.98 0.02 85 / 12%);
-  --sidebar-ring: oklch(0.82 0.135 82);
+  --chart-1: oklch(0.62 0.115 72);
+  --chart-2: oklch(0.58 0.19 35);
+  --chart-3: oklch(0.6 0.1 140);
+  --chart-4: oklch(0.62 0.12 200);
+  --chart-5: oklch(0.55 0.15 320);
+  --sidebar: oklch(0.965 0.012 85);
+  --sidebar-foreground: oklch(0.24 0.02 60);
+  --sidebar-primary: oklch(0.62 0.115 72);
+  --sidebar-primary-foreground: oklch(0.99 0.008 85);
+  --sidebar-accent: oklch(0.94 0.014 84);
+  --sidebar-accent-foreground: oklch(0.26 0.02 60);
+  --sidebar-border: oklch(0.32 0.03 70 / 14%);
+  --sidebar-ring: oklch(0.62 0.115 72);
 
   --gradient-gold: linear-gradient(
     100deg,
-    oklch(0.9 0.07 88),
-    oklch(0.82 0.135 82) 45%,
-    oklch(0.68 0.13 55)
+    oklch(0.74 0.09 80),
+    oklch(0.62 0.115 72) 45%,
+    oklch(0.52 0.12 50)
   );
   --gradient-ember: linear-gradient(
     160deg,
-    color-mix(in oklab, var(--ember) 28%, transparent),
+    color-mix(in oklab, var(--ember) 16%, transparent),
     transparent 70%
   );
-  --shadow-soft: 0 10px 30px -12px oklch(0 0 0 / 0.7);
-  --shadow-lift: 0 24px 50px -18px oklch(0 0 0 / 0.8);
-  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--gold) 26%, transparent),
-    0 18px 40px -20px color-mix(in oklab, var(--gold) 40%, transparent);
+  --shadow-soft: 0 10px 30px -14px oklch(0.3 0.04 60 / 0.28);
+  --shadow-lift: 0 24px 50px -22px oklch(0.3 0.04 60 / 0.32);
+  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--gold) 28%, transparent),
+    0 18px 40px -22px color-mix(in oklab, var(--gold) 45%, transparent);
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+
 }
 
 

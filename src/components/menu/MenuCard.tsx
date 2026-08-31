@@ -78,6 +78,19 @@ export function MenuCard({ item, index, onSelect }: Props) {
         <p className="line-clamp-2 text-sm text-muted-foreground">
           {item.description ?? category?.name}
         </p>
+        {!item.image && item.badges?.length ? (
+          <div className="mt-1 flex flex-wrap gap-1.5">
+            {item.badges.map((badge) => (
+              <span
+                key={badge}
+                className="rounded-full border border-border bg-secondary px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-gold"
+              >
+                {badge}
+              </span>
+            ))}
+          </div>
+        ) : null}
+
         <div className="mt-3 flex items-center justify-between gap-3">
           <span className="text-base font-semibold text-gold sm:text-lg">
             {formatPrice(item.price)}
